@@ -41,18 +41,42 @@ def analyse():
         return f"could not read file:{e}"
     if not resume.strip():
         return "could not extract any text from the file.Try a different resume."
-    prompt=f""" you are an experienced technical recruiter and resume reviewer.Do not use markdown formatting like asterisks or hashtags,just plain text.
+    prompt=f""" you are an experienced technical recruiter, career advisor, and ATS resume expeert.Do not use markdown formatting like asterisks or hashtags,just plain text.
     Analyse the following resume and respond in this exact format:
-    score:X/10
+    Overall score:X/10
+    ATS compatibility score:X/10
+    Resume summary:
+    -write a short summary of the candidate's profile.
+    Technical skills:
+    -list the technical skills mentioned in the resume.
+    Soft skills:
+    -list the soft skills mentioned in the resume.
     strengths:
     -point 1
     -point 2
+    -point 3
     weaknesses:
     -point 1
     -point 2
+    -point 3
+    Missing or Recommended skills:
+    -skill 1
+    -skill 2
+    -skill 3
+    Suitable job roles:
+    -role 1
+    -role 2
+    -role 3
     suggestions for improvement:
     -point 1
     -point 2
+    -point 3
+    Education Analysis:
+    -Briefly analyze the candidate's educational background and its relevance to the desired job roles.
+    Project Analysis:
+    -Analyze the candidate's projects mentioned in the resume and explain their relevance.
+    Experience Analysis:
+    -Analyze the candidate's work or internship experience.
     Resume:
     {resume}
     """
